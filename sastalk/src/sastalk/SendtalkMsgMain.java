@@ -28,7 +28,6 @@ import skt.tmall.talk.service.PushTalkSendService;
 import com.google.common.collect.Lists;
 import com.google.gson.JsonObject;
 
-
 public class SendtalkMsgMain {
 	public static void main(String[] arg) throws Exception {
 		// 전송 처리
