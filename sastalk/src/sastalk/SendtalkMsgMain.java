@@ -40,15 +40,15 @@ public class SendtalkMsgMain {
 class SendtalkMsg {
 
 	//기본정보
-	private Long memNo = 18468196L; //회원번호  강석12774111, 김영천18468196
+	private Long memNo = 20750578L; //회원번호  강석12774111, 김영천18468196, 20750578김창범
 	private String talkMsgTmpltNo = "002"; //알림톡 템플릿에 등록한 메시지 타입코드
 	private AppKdCdType appKdCd = ELEVENSTAPP; // 발송대상 앱코드
 
 	public int exec() throws Exception {
 		//푸시메시지
 		JsonObject obj = new JsonObject();
-		obj.addProperty("IOS_MSG", "아이폰 메시지");
-		obj.addProperty("AND_MSG", "안드로이드 메시지");
+		obj.addProperty("IOS_MSG", "아이폰 메시지~개인화테스트입니다~5번째");
+		obj.addProperty("AND_MSG", "안드로이드 메시지~~개인화테스트입니다~5번째");
 
 		//알림톡메시지
 		String summary = "주문 알림톡입니다."; //알림톡방 리스트에 노출 할 메시지
@@ -69,9 +69,12 @@ class SendtalkMsg {
 		data.setPushTopMessage(obj.toString());
 		data.setPushBottomMessage(obj.toString());
 		data.setPushIosMessage(obj.toString());
+		
 		data.setTalkSummaryMessage(summary);
 		data.setTalkMessage(composites);
 		System.out.println(">>>>> composites: " + composites);
+		System.out.println(">>>>> obj: " + obj);
+		
 		
 		//예약발송
 		data.setSendAllwBgnDt(new Date()); //예약발송시 설정.  예약발송시간을 java.util.Date 타입으로 작성.
