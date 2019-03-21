@@ -124,10 +124,10 @@ public class SendtalkMsgMain {
 		SendtalkMsgMain instance = new SendtalkMsgMain();
 		
 	    //테스트 데이터 셋팅  , 운영모드 일 경우 Remarking 
-	    instance.setAndroid_messageData("안드로이드 메시지~~개인화테스트입니다~12번째");
-	    instance.setIos_messageData    ("아이폰 메시지~개인화테스트입니다~12번째");
+	    instance.setAndroid_messageData("안드로이드 메시지~~개인화테스트입니다~18번째");
+	    instance.setIos_messageData    ("아이폰 메시지~개인화테스트입니다~18번째");
 	    instance.setTalkMsgTmpltNo     ("002");
-	    instance.setMemno              ("18468196");
+	    instance.setMemno              ("20750578");
 	    
 		int ret = instance.exec();
 		System.out.println(">>>>> ret = " + ret);
