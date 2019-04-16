@@ -26,7 +26,8 @@ public class Type1Main {
 	private static boolean flag = true;
 	
 	public static void main(String[] args) throws Exception {
-		if (flag) test01();
+		if (!flag) test01();
+		if (flag) test02();
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -138,5 +139,52 @@ public class Type1Main {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	private static void test02() {
+		
+		String json = null;
+		Gson gson = new Gson();
+		Map<String, Object> map = null;
+		List<String> lstUrls = null;
+		List<BlockImg500.Value> list = null;
+		List<Block> composites = null;
+		
+		if (flag) {
+			json = "{ \"imgUrl\": ["
+					+ " \"http://i.011st.com/1....\" "
+					+ " ,\"http://i.011st.com/2....\" "
+					+ " ,\"http://i.011st.com/3....\" "
+					+ "]}";
+			if (flag) System.out.println(">>>>> json = " + json);
+		}
+		
+		if (flag) {
+			map = gson.fromJson(json, new TypeToken<Map<String, Object>>(){}.getType());    // important
+			if (!flag) System.out.println(">>>>> map = " + map);
+			
+			lstUrls = (List<String>) map.get("imgUrl");
+			for (String strUrl : lstUrls) {
+				if (!flag) System.out.println(">>>>> " + strUrl);
+			}
+		}
+		
+		if (flag) {
+			list = new ArrayList<>();
+			for (String strUrl : lstUrls) {
+				if (!flag) System.out.println(">>>>> " + strUrl);
+				list.add(new BlockImg500.Value(strUrl));
+			}
+		}
+		
+		composites = Lists.newArrayList(
+				//new BlockTopCap(new BlockTopCap.Value((String) mapParams.get("title1"), (String) mapParams.get("advText")))
+				//, new BlockBoldText(new BlockBoldText.Value((String) mapParams.get("title2"), (String) mapParams.get("title3")))
+				new BlockImg500(list)
+				//, new BlockBtnView(new BlockBtnView.Value((String) mapParams.get("ftrText"), new BlockLinkUrl((String) mapParams.get("ftrMblUrl"), (String) mapParams.get("ftrWebUrl"))))
+		);
+		
+		if (flag) System.out.println(">>>>> composites = " + composites);
 	}
 }
